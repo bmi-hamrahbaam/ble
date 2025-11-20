@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>دانلود اپلیکیشن بام | بانک ملی ایران</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #111315;
+      font-family: "Vazirmatn", sans-serif;
+      color: #fff;
+    }
+
+    /* ===================== لودر ===================== */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      background: #111315;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      transition: opacity 0.4s ease;
+    }
+    #preloader.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .loader-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 26px;
+      background: #f59b23;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+      margin-bottom: 18px;
+    }
+    .loader-logo img {
+      width: 70%;
+    }
+    .loader-text {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #d1d5db;
+    }
+    .spinner {
+      width: 30px;
+      height: 30px;
+      border: 3px solid rgba(255,255,255,0.15);
+      border-left-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      margin-top: 18px;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* ===================== صفحه اصلی ===================== */
+    .page {
+      max-width: 480px;
+      margin: auto;
+      padding: 24px 18px 50px;
+      text-align: center;
+    }
+
+    .logo-card {
+      margin-top: 32px;
+      width: 130px;
+      height: 130px;
+      background: #f59b23;
+      border-radius: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.4);
+    }
+    .logo-card img {
+      width: 110%;
+    }
+
+    .title {
+      font-size: 26px;
+      font-weight: 700;
+      color: #f9a72b;
+      margin-top: 14px;
+    }
+    .subtitle {
+      margin-top: 6px;
+      color: #cfd4db;
+      font-size: 14px;
+    }
+
+    /* هشدار قرمز */
+    .security-warning {
+      background: rgba(255, 0, 0, 0.08);
+      border: 1px solid rgba(255, 0, 0, 0.4);
+      color: #ff4d4d;
+      padding: 14px;
+      border-radius: 14px;
+      margin-top: 22px;
+      line-height: 2;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    /* ===================== دکمه دانلود سبز ملی ===================== */
+    .download-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #0daf4b, #0a8f3a);
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 14px 0;
+      border-radius: 999px;
+      margin: 26px auto;
+      width: 100%;
+      max-width: 340px;
+      text-decoration: none;
+      box-shadow: 0 12px 34px rgba(0, 150, 70, 0.40);
+      transition: 0.25s ease;
+    }
+    .download-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 42px rgba(0, 150, 70, 0.55);
+    }
+    .download-btn:active {
+      transform: scale(0.96);
+    }
+
+    /* ===================== اسکرین‌شات ===================== */
+    .phone-wrapper {
+      margin: 10px auto 34px;
+      width: 78%;
+      max-width: 260px;
+    }
+    .phone-wrapper img {
+      width: 100%;
+      border-radius: 22px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.7);
+    }
+
+    /* ===================== دکمه‌های بازار ===================== */
+    .store-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 360px;
+      margin: auto;
+    }
+    .store-btn {
+      padding: 12px;
+      border-radius: 999px;
+      background: #1e2227;
+      color: #fff;
+      border: 1px solid #2b3238;
+      text-decoration: none;
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+    }
+    .store-icon {
+      width: 22px;
+      height: 22px;
+      background: #ffffff;
+      color: #000;
+      font-weight: bold;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .footer-text {
+      margin-top: 22px;
+      color: #7c848d;
+      font-size: 12px;
+      line-height: 2;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ===================== لودر ===================== -->
+<div id="preloader">
+  <div class="loader-logo">
+    <img src="bam_logo.png" alt="bam">
+  </div>
+  <div class="loader-text">در حال آماده‌سازی دانلود…</div>
+  <div class="spinner"></div>
+</div>
+
+<!-- ===================== محتوا ===================== -->
+<div class="page">
+
+  <div class="logo-card">
+    <img src="bam_logo.png" alt="Bam Logo">
+  </div>
+
+  <div class="title">اپلیکیشن اندروید بام</div>
+  <div class="subtitle">پلتفرم بانکداری دیجیتال بانک ملی ایران</div>
+
+  <div class="security-warning">
+    ⚠️ لطفاً با توجه به هشدارهای سامانه بام و پلیس فتا، جهت حفظ امنیت حساب،  
+    نسخه رسمی را فقط از طریق دکمه زیر دانلود نمایید.
+  </div>
+
+  <a href="bam.apk" class="download-btn">دانلود مستقیم بام</a>
+
+  <div class="phone-wrapper">
+    <img src="app_screen.png" alt="app">
+  </div>
+
+  <div class="store-buttons">
+    <a href="bam.apk" class="store-btn">
+      <div class="store-icon">ب</div> دانلود از کافه‌بازار
+    </a>
+    <a href="bam.apk" class="store-btn">
+      <div class="store-icon">م</div> دانلود از مایکت
+    </a>
+  </div>
+
+  <div class="footer-text">
+    در صورت نمایش هشدار گوگل پلی، گزینه «Install anyway / ادامه نصب» را انتخاب کنید.
+  </div>
+
+</div>
+
+<script>
+  window.onload = () => {
+    setTimeout(() => {
+      document.getElementById("preloader").classList.add("hide");
+    }, 700);
+  };
+</script>
+
+</body>
+</html>
